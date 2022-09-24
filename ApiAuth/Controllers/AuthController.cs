@@ -18,7 +18,6 @@ namespace ApiAuth.Controllers
         {
             TokenHandler._configuration = _configuration;
             return Ok(userName == "test" && password == "123456" ? TokenHandler.CreateAccessToken() : new UnauthorizedResult());
-            return Ok();
         }
 
         //[HttpGet(Name = "GetWeatherForecastAuth")]
