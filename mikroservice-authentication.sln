@@ -3,15 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mikroservice-authentication", "mikroservice-authentication\mikroservice-authentication.csproj", "{670DB0D4-9EC6-47FF-B655-A843F0EAC0B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateway", "ApiGateway\ApiGateway.csproj", "{F921F121-54D9-44A3-805D-CD638CDA9958}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway", "ApiGateway\ApiGateway.csproj", "{F921F121-54D9-44A3-805D-CD638CDA9958}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiAuth", "ApiAuth\ApiAuth.csproj", "{C8262696-167C-4FD4-BADA-35E89C2A490D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiAuth", "ApiAuth\ApiAuth.csproj", "{C8262696-167C-4FD4-BADA-35E89C2A490D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiCategory", "ApiCategory\ApiCategory.csproj", "{8AC1F19C-816B-4AB7-86ED-9C9FD25DEF0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiCategory", "ApiCategory\ApiCategory.csproj", "{8AC1F19C-816B-4AB7-86ED-9C9FD25DEF0D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiProduct", "ApiProduct\ApiProduct.csproj", "{569FA76C-FBE3-4501-A76E-694930280BF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiProduct", "ApiProduct\ApiProduct.csproj", "{569FA76C-FBE3-4501-A76E-694930280BF9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{670DB0D4-9EC6-47FF-B655-A843F0EAC0B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{670DB0D4-9EC6-47FF-B655-A843F0EAC0B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{670DB0D4-9EC6-47FF-B655-A843F0EAC0B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{670DB0D4-9EC6-47FF-B655-A843F0EAC0B2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F921F121-54D9-44A3-805D-CD638CDA9958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F921F121-54D9-44A3-805D-CD638CDA9958}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F921F121-54D9-44A3-805D-CD638CDA9958}.Release|Any CPU.ActiveCfg = Release|Any CPU
