@@ -1,6 +1,9 @@
 ﻿
 
+using Core.Application.Utilities;
 using Core.Security.Dtos;
+using Core.Security.JWT;
+using IdentityService.Application.Constants;
 using IdentityService.Application.Features.Auth.Dto;
 using IdentityService.Application.Features.Auth.Rules;
 using IdentityService.Application.Services.Repositories;
@@ -10,10 +13,10 @@ using Microsoft.AspNetCore.Http;
 namespace IdentityService.Application.Features.Auth.Command
 {
 
-    public class LoginCommand : IRequest<LoginDto>
+    public class LoginCommand : IRequest<IDataResult< LoginDto>>
     {
      public   UserForLoginDto userForLoginDto { get; set; }
-        public class LoginCommandHandler : IRequestHandler<LoginCommand, LoginDto>
+        public class LoginCommandHandler : IRequestHandler<LoginCommand, IDataResult<LoginDto>>
         {
             private readonly IAuthRepository _authRepository;
             private readonly IRefreshTokenRepository _refreshTokenRepository;
@@ -29,13 +32,14 @@ namespace IdentityService.Application.Features.Auth.Command
                 _httpContextAccessor = httpContextAccessor;
             }
 
-            public async Task<LoginDto> Handle(LoginCommand request, CancellationToken cancellationToken)
+            public async Task<IDataResult<LoginDto>> Handle(LoginCommand request, CancellationToken cancellationToken)
             {
                 var userToLogin = _authRepository.Login(request.userForLoginDto);
                 if (!userToLogin.Success)
                 {
                     _loginBusinessRules.UserToLoginAndTokenNotSucces(userToLogin.Message);
                     //return BadRequest(userToLogin.Message);
+                    return new ErrorDataResult<LoginDto>(new LoginDto(), "User Not Found");
                 }
                 var result = _authRepository.CreateAccessToken(userToLogin.Data);
                 var refreshToken = await _authRepository.CreateRefreshToken(userToLogin.Data, _httpContextAccessor.HttpContext.Connection.RemoteIpAddress.ToString());
@@ -43,6 +47,8 @@ namespace IdentityService.Application.Features.Auth.Command
                 if (!result.Success)
                 {
                     _loginBusinessRules.UserToLoginAndTokenNotSucces(result.Message);
+                    return new ErrorDataResult<LoginDto>(new LoginDto(), "Refresh Token Error");
+
                 }
                 var resultDTO = new LoginDto();
                 resultDTO.Token = result.Data.Token;
@@ -61,7 +67,9 @@ namespace IdentityService.Application.Features.Auth.Command
 
                 //resultDTO.accessToken = result.Data;
                 //resultDTO.refreshToken =  refreshToken.Data;
-                return resultDTO;
+                var returnResult=new SuccessDataResult<LoginDto>(resultDTO, Messages.AccessTokenCreated);
+
+                return returnResult;
             }
         }
     }

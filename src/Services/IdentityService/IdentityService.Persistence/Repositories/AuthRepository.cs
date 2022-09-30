@@ -75,9 +75,17 @@ namespace IdentityService.Persistence.Repositories
 
         public IDataResult<AccessToken> CreateAccessToken(User user)
         {
-            var claims = _userRepository.GetClaims(user);
-            var accessToken = _tokenHelper.CreateToken(user, claims);
-            return new SuccessDataResult<AccessToken>(accessToken, Messages.AccessTokenCreated);
+            if(user != null)
+            {
+                var claims = _userRepository.GetClaims(user);
+                var accessToken = _tokenHelper.CreateToken(user, claims);
+                return new SuccessDataResult<AccessToken>(accessToken, Messages.AccessTokenCreated);
+            }
+            else
+            {
+                return new ErrorDataResult<AccessToken>(new AccessToken(), "User Not Found");
+            }
+            
         }
 
         public async Task< IDataResult<RefreshToken>> CreateRefreshToken(User user, string ipAddress)

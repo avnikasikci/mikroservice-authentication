@@ -1,7 +1,4 @@
-﻿
-
-
-using Core.Security.Entities;
+﻿using Core.Security.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -13,7 +10,7 @@ namespace IdentityService.Persistence.Contexts
 
 
         public DbSet<OperationClaim> OperationClaims { get; set; }
-        //public DbSet<RefreshToken> RefreshTokens { get; set; }
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
 
         public DbSet<User> Users { get; set; }
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }

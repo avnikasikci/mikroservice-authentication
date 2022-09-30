@@ -1,3 +1,4 @@
+using Core.Application.Utilities;
 using Core.Security.Dtos;
 using Core.Security.JWT;
 using IdentityService.Application.Features.Auth.Command;
@@ -14,7 +15,7 @@ namespace IdentityService.Api.Controllers
         public async Task<IActionResult> Login([FromQuery] UserForLoginDto userForLogin)
         {
             LoginCommand loginCommand = new() { userForLoginDto = userForLogin };
-            LoginDto result = await Mediator.Send(loginCommand);
+            IDataResult<LoginDto> result = await Mediator.Send(loginCommand);
             //string resultJsonStr = JsonConvert.SerializeObject(result);
 
             return Ok(result);
@@ -23,7 +24,7 @@ namespace IdentityService.Api.Controllers
         public async Task<IActionResult> Register([FromQuery] UserForRegisterDto userForRegister)
         {
             RegisterCommand registerCommand = new() { userForRegisterDto = userForRegister };
-            AccessToken result = await Mediator.Send(registerCommand);
+            IDataResult<LoginDto> result = await Mediator.Send(registerCommand);
             return Ok(result);
 
         }
