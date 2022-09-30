@@ -7,27 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 var _configuration = builder.Configuration;
 SymmetricSecurityKey signInKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Security"]));
 
-//string authenticationProviderKey = "Bearer";
-//builder.Services.AddAuthentication(option => option.DefaultAuthenticateScheme = authenticationProviderKey)
-//    .AddJwtBearer(authenticationProviderKey, options =>
-//    {
-//        options.RequireHttpsMetadata = false;
-//        options.TokenValidationParameters = new TokenValidationParameters
-//        {
-//            ValidateIssuerSigningKey = true,
-//            IssuerSigningKey = signInKey,
-//            ValidateIssuer = true,
-//            ValidIssuer = _configuration["JWT:Issuer"],
-//            ValidateAudience = true,
-//            ValidAudience = _configuration["JWT:Audience"],
-//            ValidateLifetime = true,
-//            ClockSkew = TimeSpan.Zero,
-//            RequireExpirationTime = true
-//        };
-//    });
-
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
+string authenticationProviderKey = "TestKey";
+builder.Services.AddAuthentication(option => option.DefaultAuthenticateScheme = authenticationProviderKey)
+    .AddJwtBearer(authenticationProviderKey, options =>
     {
         options.RequireHttpsMetadata = false;
         options.TokenValidationParameters = new TokenValidationParameters
@@ -43,6 +25,24 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             RequireExpirationTime = true
         };
     });
+
+//builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+//    .AddJwtBearer(options =>
+//    {
+//        options.RequireHttpsMetadata = false;
+//        options.TokenValidationParameters = new TokenValidationParameters
+//        {
+//            ValidateIssuerSigningKey = true,
+//            IssuerSigningKey = signInKey,
+//            ValidateIssuer = true,
+//            ValidIssuer = _configuration["JWT:Issuer"],
+//            ValidateAudience = true,
+//            ValidAudience = _configuration["JWT:Audience"],
+//            ValidateLifetime = true,
+//            ClockSkew = TimeSpan.Zero,
+//            RequireExpirationTime = true
+//        };
+//    });
 
 
 // Add services to the container.
@@ -62,6 +62,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
