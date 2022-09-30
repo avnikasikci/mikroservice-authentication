@@ -28,6 +28,10 @@ public class AuthorizationBehavior<TRequest, TResponse> : IPipelineBehavior<TReq
 
         //Claims are not received in the token request, it also needs to be verified.
         var AuthHeaderToken = _httpContextAccessor.HttpContext.Request.Headers["Authorization"];
+        
+        if (AuthHeaderToken == "" || string.IsNullOrEmpty(AuthHeaderToken))
+            throw new AuthorizationException("User not login.");
+
         var getClaims = _tokenHelper.GetClaims(AuthHeaderToken).ToList();
         //var userClaimsId=getClaims.Where(x=>x.Type == ClaimsIdentity.DefaultNameClaimType).ToList();
         int userClaimsId = 0;

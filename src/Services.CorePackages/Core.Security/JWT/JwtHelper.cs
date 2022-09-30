@@ -78,7 +78,7 @@ public class JwtHelper : ITokenHelper
     }
     public IEnumerable<Claim> GetClaims(string token)
     {
-        token = token.Replace("Bearer ", "");
+        token = token?.Replace("Bearer ", "") ?? "";
 
         string secret = _tokenOptions.SecurityKey;
         //var key = Encoding.ASCII.GetBytes(secret);
