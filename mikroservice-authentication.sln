@@ -3,14 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateway", "ApiGateway\ApiGateway.csproj", "{F921F121-54D9-44A3-805D-CD638CDA9958}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiAuth", "ApiAuth\ApiAuth.csproj", "{C8262696-167C-4FD4-BADA-35E89C2A490D}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiCategory", "ApiCategory\ApiCategory.csproj", "{8AC1F19C-816B-4AB7-86ED-9C9FD25DEF0D}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiProduct", "ApiProduct\ApiProduct.csproj", "{569FA76C-FBE3-4501-A76E-694930280BF9}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{23F479C4-28F1-4935-A8FD-B6F53DE49D4E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{3FDD8156-217C-40D5-8A3D-DDFB9ED8AA5C}"
@@ -87,22 +79,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F921F121-54D9-44A3-805D-CD638CDA9958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F921F121-54D9-44A3-805D-CD638CDA9958}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F921F121-54D9-44A3-805D-CD638CDA9958}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F921F121-54D9-44A3-805D-CD638CDA9958}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C8262696-167C-4FD4-BADA-35E89C2A490D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C8262696-167C-4FD4-BADA-35E89C2A490D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C8262696-167C-4FD4-BADA-35E89C2A490D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C8262696-167C-4FD4-BADA-35E89C2A490D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8AC1F19C-816B-4AB7-86ED-9C9FD25DEF0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8AC1F19C-816B-4AB7-86ED-9C9FD25DEF0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8AC1F19C-816B-4AB7-86ED-9C9FD25DEF0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8AC1F19C-816B-4AB7-86ED-9C9FD25DEF0D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{569FA76C-FBE3-4501-A76E-694930280BF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{569FA76C-FBE3-4501-A76E-694930280BF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{569FA76C-FBE3-4501-A76E-694930280BF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{569FA76C-FBE3-4501-A76E-694930280BF9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7BB00339-D7B7-4376-AE95-8B7D9A81AC85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7BB00339-D7B7-4376-AE95-8B7D9A81AC85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BB00339-D7B7-4376-AE95-8B7D9A81AC85}.Release|Any CPU.ActiveCfg = Release|Any CPU
